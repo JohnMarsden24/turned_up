@@ -4,7 +4,7 @@ puts "Deleting all users"
 
 User.destroy_all
 
-puts "Creating new users"
+puts "Creating new users..."
 
 12.times do
   User.create!(
@@ -28,4 +28,22 @@ end
     artist: false)
 end
 
-puts "Users created"
+puts "Creating new Reviews..."
+
+20.times do
+  Review.create!(
+    content: Faker::Quote.famous_last_words,
+    user: User.all[rand(12..23)],
+    artist: User.all[rand(0..11)])
+end
+
+puts "Creating new Bookings..."
+
+20.times do
+  Booking.create!(
+    date: Date.today + rand(0..15),
+    user: User.all[rand(12..23)],
+    artist: User.all[rand(0..11)])
+end
+
+puts "Users, Reviews & Bookings created!"
