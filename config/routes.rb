@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root "users#home"
+
   resources :users do
     resources :bookings, only: [:new, :create, :index]
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :new]
   end
 
   resources :bookings, only: [:destroy, :edit, :update]
