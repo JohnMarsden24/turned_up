@@ -26,7 +26,7 @@
   <h3>Reviews</h3>
 --------------------------------
     <% @user.reviewed.each do |review| %>
-      <h4><%= "*" * review.rating %></h4>
+      <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
       <h4><%= "Posted by #{review.user.user_name}" %></h5>
       <p><%= review.content %></p>
         <% if review.user_id == current_user.id %>
