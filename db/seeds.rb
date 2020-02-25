@@ -7,11 +7,14 @@ User.destroy_all
 puts "Creating new users..."
 
 12.times do
+  alphabet=('a'..'z').to_a
+  profile_pic = "https://api.adorable.io/avatars/285/#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}@adorable.io.png"
   User.create!(
     user_name: Faker::FunnyName.name,
     email: Faker::Internet.email,
     password: "password",
     artist: true,
+    avatar: profile_pic,
     artist_name: Faker::Music.band,
     description: Faker::TvShows::Friends.quote,
     location: Faker::Address.city,
@@ -21,9 +24,12 @@ puts "Creating new users..."
 end
 
 12.times do
+  alphabet=('a'..'z').to_a
+  profile_pic = "https://api.adorable.io/avatars/285/#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}@adorable.io.png"
   User.create!(
     user_name: Faker::Name.first_name,
     email: Faker::Internet.email,
+    avatar: profile_pic,
     password: "password",
     artist: false)
 end
