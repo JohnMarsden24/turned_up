@@ -5,8 +5,10 @@
   <div class="navbar-user">
     <% if current_user %>
       <%= "hello world" %>
+      <%= link_to "Sign out", destroy_user_session_path %>
+      <%= image_tag current_user.photo, alt: "alttext" %>
     <% else %>
-      <a href="users/sign_in" class="btn sign-in">Log in</a>
+    <%= link_to "Sign in", new_user_session_path, class: "btn-dark"  %>
     <% end %>
   </div>
 </div>
