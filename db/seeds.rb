@@ -40,6 +40,7 @@ puts "Creating new Reviews..."
   Review.create!(
     content: Faker::Quote.famous_last_words,
     user: User.all[rand(12..23)],
+    rating: rand(1..5),
     artist: User.all[rand(0..11)])
 end
 
