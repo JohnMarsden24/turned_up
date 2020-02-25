@@ -20,5 +20,34 @@
       }
     }
   }
-}
 
+  .navbar-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+
+    h6 {
+      font-family: $sub-title;
+      padding-right: 16px;
+    }
+    .dropdown {
+      a:hover {
+        background-color: $pink;
+      }
+    }
+
+
+    .navbar-user-photo {
+      width: 48px;
+      height: 48px;
+      background-size: cover;
+      border-radius: 50%;
+      border: 3px solid black;
+      transition: 0.3s;
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+}
