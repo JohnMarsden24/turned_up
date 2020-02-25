@@ -36,5 +36,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :email, :avatar, :artist, :artist_name, :location, :genre, :price, :photo, :description)
   end
-
 end
