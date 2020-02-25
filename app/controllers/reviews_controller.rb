@@ -19,19 +19,30 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    find_review
+    @review = find_review
   end
 
   def update
+    @review = find_review
+    @artist = User.find(@review.artist_id)
+    if @review.update(review_params)
+      redirect_to user_path(@artist)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @review = find_review
+    @artist = User.find(@review.artist_id)
+    @review.destroy
+    redirect_to user_path(@artist)
   end
 
 private
 
   def  find_review
-    @review = Review.find(params[:id])
+    Review.find(params[:id])
   end
 
   def review_params

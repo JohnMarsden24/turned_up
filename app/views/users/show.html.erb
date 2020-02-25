@@ -20,3 +20,19 @@
   <!-- <p><%= link_to "Change password", edit_user_password_path %></p> -->
 
 <% end %>
+
+<% if @user.artist == true %> <br>
+--------------------------------
+  <h3>Reviews</h3>
+--------------------------------
+    <% @user.reviewed.each do |review| %>
+      <h4><%= "*" * review.rating %></h4>
+      <h4><%= "Posted by #{review.user.user_name}" %></h5>
+      <p><%= review.content %></p>
+        <% if review.user_id == current_user.id %>
+          <%= link_to "Delete review", review_path(review), method: :delete %> |
+          <%= link_to "Edit your review",  edit_review_path(review) %>
+        <% end %>
+    <% end %>
+    <br> <%= link_to "Add a review", new_user_review_path(@user) %>
+  <% end %>
