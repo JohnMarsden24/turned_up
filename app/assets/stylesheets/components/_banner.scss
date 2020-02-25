@@ -1,6 +1,13 @@
-.banner {
-  background-color: black;
-  color: white;
-  height: 90vh;
-  margin-top: 10vh;
+.banner-text {
+  height: 80vh;
+  padding-top: 200px;
+
+  h1 {
+    font-size: 80px;
+  }
+
+  h2 {
+    font-family: $sub-title;
+    color: $pink;
+  }
 }
