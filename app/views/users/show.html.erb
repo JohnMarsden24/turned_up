@@ -1,0 +1,22 @@
+<%#= link_to "turned up", root_path  %>
+
+<% if @user.artist %>
+
+  <h1><%= @user.artist_name %></h1>
+
+  <p><img src="<%= @user.photo %>" style="width:600px;height:400px";></p>
+
+  <p><%= @user.description %></p>
+  <p><%= @user.location %></p>
+  <span><%= @user.genre %></span>
+  <span><%= @user.price %></span>
+<%#= link_to "Book now", new_user_booking_path %>
+<% else %>
+
+<h1><%= @user.user_name %></h1>
+
+  <p><img src="<%=@user.avatar%>"></p>
+  <p><%= @user.email %></p>
+  <!-- <p><%= link_to "Change password", edit_user_password_path %></p> -->
+
+<% end %>
