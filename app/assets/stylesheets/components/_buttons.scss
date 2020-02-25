@@ -1,0 +1,11 @@
+.btn {
+  margin-right: 16px;
+  padding: 4px 16px;
+  background-color: black;
+  color: white;
+  border-radius: 40px;
+  font-family: $sub-title;
+  &:hover {
+    color: $pink;
+  }
+}
