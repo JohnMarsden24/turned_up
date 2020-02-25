@@ -1,4 +1,4 @@
-<%= simple_form_for([@artist,@booking]) do |f| %>
+<%= simple_form_for([@artist, @booking]) do |f| %>
   <%= f.input :artist_id, as: :hidden, input_html: { value: @artist.id } %>
   <%= f.input :date %>
   <%= f.button :submit %>
