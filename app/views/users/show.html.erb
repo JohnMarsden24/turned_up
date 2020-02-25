@@ -6,6 +6,8 @@
 
   <p><img src="<%= @user.photo %>" style="width:600px;height:400px";></p>
 
+  <p><%#= cl_image_tag @user.photo.key %></p>
+
   <p><%= @user.description %></p>
   <p><%= @user.location %></p>
   <span><%= @user.genre %></span>
@@ -15,10 +17,18 @@
 
 <h1><%= @user.user_name %></h1>
 
-  <p><img src="<%=@user.avatar%>"></p>
+  <p><%= cl_image_tag @user.avatar.key %></p>
   <p><%= @user.email %></p>
-  <!-- <p><%= link_to "Change password", edit_user_password_path %></p> -->
+  <p><strong>Bookings</strong></p>
 
+  <% @user.bookings.each do |booking| %>
+    <p><%= booking.artist.artist_name %> | <%= booking.date %></p>
+  <% end %>
+
+<% end %>
+
+<% if @user == current_user %>
+  <p><%= link_to "Change password", edit_user_password_path %></p>
 <% end %>
 
 <% if @user.artist == true %> <br>

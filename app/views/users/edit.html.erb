@@ -15,14 +15,14 @@
     <%= f.input :user_name %>
     <%= f.input :password %>
     <%= f.input :email %>
-    <%= f.input :avatar %>
+    <%= f.input :avatar, as: :file %>
     <%= f.input :artist %>
     <%= f.input :artist_name %>
     <%= f.input :location %>
     <%= f.input :description %>
     <%= f.input :genre %>
     <%= f.input :price %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Update details" %>
   <% end %>
 <% end %>
