@@ -1,0 +1,42 @@
+.card-small {
+  // background-size: cover;
+  // background-position: center;
+  // height: 150px;
+  // border-radius: 1px;
+  // box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+  // font-size: 22px;
+  // color: white;
+  // font-weight: bolder;
+  // text-shadow: 0 0 10px rgba(0,0,0,0.7);
+
+
+  h6 {
+    font-family: $sub-title;
+  }
+
+  a {
+    font-family: $sub-title;
+    color: $pink;
+    transition: 0.3s;
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  .card-small-description {
+    height: 140px;
+  }
+
+  .d-flex {
+    h5 {
+      font-family: $sub-title;
+      margin: 0;
+    }
+    justify-content: space-between;
+    align-items: center;
+  }
+}
