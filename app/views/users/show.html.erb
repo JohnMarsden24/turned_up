@@ -13,10 +13,10 @@
 
 <div class="user-profile">
   <h1><%= @user.user_name %></h1>
-    <p><% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%></p>
+    <% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
     <p><%= cl_image_tag avatar_key, :radius=>"max", :width => 150 %></p>
     <p><%= @user.email %></p>
-    <p><strong>Bookings</strong></p>
+    <h4><strong>Bookings</strong></h4>
 
     <% @user.bookings.each do |booking| %>
       <p><%= booking.artist.artist_name %> | <%= booking.date %></p>
@@ -24,10 +24,10 @@
 
   <% end %>
 
-  <% if @user == current_user %>
-    <p><%= link_to "Change password", edit_user_password_path %></p>
-  <% end %>
-
+<% if @user == current_user %>
+  <p><%= link_to "Edit Profile", edit_user_path(@user), class: "btn-light" %></p>
+  <p><%= link_to "Change password", edit_user_password_path, class: "btn-sub" %></p>
+<% end %>
 
 <% if @user.artist == true %> <br><br>
 --------------------------------
