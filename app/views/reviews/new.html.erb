@@ -1,7 +1,7 @@
-<h1>this is the reviews page</h1>
+<h1>Leave a review</h1>
 
 <%= simple_form_for([@artist, @review]) do |f| %>
 <%= f.input :rating %>
 <%= f.input :content %>
-<%= f.submit "submit review" %>
+<%= f.submit "submit review", class:"btn-light" %>
 <% end %>
