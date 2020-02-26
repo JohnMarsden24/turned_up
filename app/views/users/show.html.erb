@@ -12,7 +12,7 @@
   <p><%= @user.location %></p>
   <span><%= @user.genre %></span>
   <span><%= @user.price %></span>
-<%#= link_to "Book now", new_user_booking_path %>
+  <br><p><%= link_to "Book now", new_user_booking_path(@user) %></p>
 <% else %>
 
 <h1><%= @user.user_name %></h1>
