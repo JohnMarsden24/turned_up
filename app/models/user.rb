@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :user_name
+
   has_many :reviews, class_name: "Review", foreign_key: "user_id", dependent: :destroy
   has_many :reviewed, class_name: "Review", foreign_key: "artist_id", dependent: :destroy
 
