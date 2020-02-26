@@ -1,37 +1,35 @@
 <%#= link_to "turned up", root_path  %>
 
 <% if @user.artist %>
+  <h1 class="py-2"><%= @user.artist_name %></h1>
+  <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %>, £<%= @user.price %>/night</p>
+  <p class="book-now"><%=link_to '<i class=" btn btn-light">Book now</i>'.html_safe, new_user_booking_path(@user) %></p>
+  <%#= cl_image_tag @user.avatar.key, :radius=>"max", :width => 150 %>
+  <p class="artist-image"><%= cl_image_tag @user.photo.key %></p>
 
-  <h1><%= @user.artist_name %></h1>
-
-  <p><%= cl_image_tag @user.avatar.key, :radius=>"max", :width => 150 %></p>
-
-  <p><%= cl_image_tag @user.photo.key %></p>
-
-  <p><%= @user.description %></p>
-  <p><%= @user.location %></p>
+  <p class="user-description"><%= @user.description %></p>
   <span><%= @user.genre %></span>
-  <span><%= @user.price %></span>
-  <br><p><%= link_to "Book now", new_user_booking_path(@user) %></p>
 <% else %>
 
-<h1><%= @user.user_name %></h1>
-  <% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
-  <p><%= cl_image_tag avatar_key, :radius=>"max", :width => 150 %></p>
-  <p><%= @user.email %></p>
-  <p><strong>Bookings</strong></p>
+<div class="user-profile">
+  <h1><%= @user.user_name %></h1>
+    <p><% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%></p>
+    <p><%= cl_image_tag avatar_key, :radius=>"max", :width => 150 %></p>
+    <p><%= @user.email %></p>
+    <p><strong>Bookings</strong></p>
 
-  <% @user.bookings.each do |booking| %>
-    <p><%= booking.artist.artist_name %> | <%= booking.date %></p>
+    <% @user.bookings.each do |booking| %>
+      <p><%= booking.artist.artist_name %> | <%= booking.date %></p>
+    <% end %>
+
   <% end %>
 
-<% end %>
+  <% if @user == current_user %>
+    <p><%= link_to "Change password", edit_user_password_path %></p>
+  <% end %>
+</div>
 
-<% if @user == current_user %>
-  <p><%= link_to "Change password", edit_user_password_path %></p>
-<% end %>
-
-<% if @user.artist == true %> <br>
+<% if @user.artist == true %> <br><br>
 --------------------------------
   <h3>Reviews</h3>
 --------------------------------
@@ -45,5 +43,5 @@
           <%= link_to "Edit your review",  edit_review_path(review) %>
         <% end %>
     <% end %>
-    <br> <%= link_to "Add a review", new_user_review_path(@user) %>
+    <br> <%= link_to '<i class=" btn btn-light">Add a review</i>'.html_safe, new_user_review_path(@user) %>
   <% end %>
