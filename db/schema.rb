@@ -67,11 +67,13 @@ ActiveRecord::Schema.define(version: 2020_02_25_161030) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_name"
+    t.string "avatar", default: "../../app/assets/images/default.png"
     t.boolean "artist", default: false
     t.string "artist_name"
     t.string "location"
     t.string "genre"
     t.integer "price"
+    t.string "photo", default: "../../app/assets/images/default.png"
     t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
