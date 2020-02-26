@@ -8,7 +8,7 @@
 
       <div class="dropdown">
         <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div class="navbar-user-photo" id="boots" style="background-image: url(<%= current_user.photo.html_safe %>)"></div>
+          <div class="navbar-user-photo" id="boots" style="background-image: url(<%= current_user.photo %>)"></div>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
           <%= link_to "Profile", edit_user_path(current_user), class: "dropdown-item" %>
