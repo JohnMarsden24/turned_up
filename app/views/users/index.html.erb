@@ -1,20 +1,17 @@
 
-
-
 <div class="listings">
-   <% @artists.each do |artist| %>
-  <div class="card-small">
-    <div class="card-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= artist.photo.key.html_safe %>')"></div>
-  <div class="card-body">
-    <h5><%= link_to artist.artist_name, user_path(artist) %></h5>
-    <h6><%= artist.location %></h6>
-    <p class="card-small-description"><%= artist.description %></p>
-    <div class="d-flex">
-      <h5>£<%= artist.price %></h5>
-    <%= link_to "Book now", new_user_booking_path(artist), class: "btn-light" %>
+  <% @artists.each do |artist| %>
+    <div class="card-small">
+      <div class="card-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= artist.photo.key.html_safe %>')"></div>
+        <div class="card-body">
+        <h5><%= link_to artist.artist_name, user_path(artist) %></h5>
+        <h6><%= artist.location %></h6>
+        <p class="card-small-description"><%= artist.description %></p>
+        <div class="d-flex">
+          <h5>£<%= artist.price %></h5>
+          <%= link_to "Book now", new_user_booking_path(artist), class: "btn-light" %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   <% end %>
-
 </div>
