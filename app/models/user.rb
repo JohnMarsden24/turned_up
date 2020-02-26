@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :artist_name, :location, :price, :genre, :description, presence: true, if: :artist
 
-  has_many_attached :photos
+  has_one_attached :photo
   has_one_attached :avatar
 
   # Include default devise modules. Others available are:
