@@ -1,13 +1,16 @@
-.banner-text {
+.banner {
   height: 80vh;
-  padding-top: 200px;
+  display: flex;
+  align-items: center;
 
-  h1 {
-    font-size: 80px;
-  }
+  .banner-text {
+    h1 {
+      font-size: 80px;
+    }
 
-  h2 {
-    font-family: $sub-title;
-    color: $pink;
+    h2 {
+      font-family: $sub-title;
+      color: $pink;
+    }
   }
 }
