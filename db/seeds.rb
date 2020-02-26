@@ -29,13 +29,13 @@ end
 
 2.times do
   alphabet=('a'..'z').to_a
-  profile_pic = URI.open("https://api.adorable.io/avatars/285/#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}@adorable.io.png")
+  #profile_pic = URI.open("https://api.adorable.io/avatars/285/#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}#{(alphabet.sample)}@adorable.io.png")
   @u = User.new(
     user_name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: "password",
     artist: false)
-  @u.avatar.attach(io: profile_pic, filename: 'nes.png', content_type: 'image/png')
+  #@u.avatar.attach(io: profile_pic, filename: 'nes.png', content_type: 'image/png')
   @u.save!
 end
 

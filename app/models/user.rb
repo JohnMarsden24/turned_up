@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :bookings, class_name: "Booking", foreign_key: "user_id", dependent: :destroy
   has_many :booked, class_name: "Booking", foreign_key: "artist_id", dependent: :destroy
 
-  validates :user_name, presence: true, uniqueness: true, length: { minimum: 3 }
+  # validates :user_name, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :artist_name, :location, :price, :genre, :description, presence: true, if: :artist
 
   has_one_attached :photo
