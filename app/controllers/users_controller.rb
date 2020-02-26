@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def home
-    # @artists = User.where(artist: true)
   end
 
   def index
@@ -9,16 +8,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @artists = User.where(artist: true)
-    # @artist = @artists.find(params[:id])
-    # @users = User.where(artist: false)
     @user = User.find(params[:id])
   end
 
   def edit
     @user = User.find(params[:id])
-    # @artists = User.where(artist: true)
-    # @artist = @artists.find(params[:id])
   end
 
   def update
