@@ -42,7 +42,10 @@
   background-color: black;
   color: white;
   transition: 0.3s;
+  padding: 4px 8px;
+  border: 1px solid white;
    &:hover {
+    text-decoration: none;
     color: $pink;
    }
   }

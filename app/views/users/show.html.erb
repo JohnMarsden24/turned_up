@@ -4,7 +4,7 @@
 
   <h1><%= @user.artist_name %></h1>
 
-  <p><%= cl_image_tag @user.avatar.key, :radius=>"max" %></p>
+  <p><%= cl_image_tag @user.avatar.key, :radius=>"max", :width => 150 %></p>
 
   <p><%= cl_image_tag @user.photo.key %></p>
 
@@ -17,7 +17,7 @@
 
 <h1><%= @user.user_name %></h1>
   <% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
-  <p><%= cl_image_tag avatar_key, :radius=>"max" %></p>
+  <p><%= cl_image_tag avatar_key, :radius=>"max", :width => 150 %></p>
   <p><%= @user.email %></p>
   <p><strong>Bookings</strong></p>
 

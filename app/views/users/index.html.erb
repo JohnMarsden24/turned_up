@@ -1,15 +1,20 @@
-<%#= link_to "turned up", root_path  %>
-
-<h1>All artists here</h1>
 
 
-<div class="artist-card">
-  <% @artists.each do |artist| %>
-    <img src='<%= artist.photo %>' style="width:300px;height:200px";>
-    <p><strong><%= link_to artist.artist_name, user_path(artist) %></strong></p>
-    <p><%= artist.location %></p>
-    <span><%= artist.genre %></span>
-    <span><%= artist.price %></span><br>
-    <%#= link_to "Book now", new_user_booking_path %>
+
+<div class="listings">
+   <% @artists.each do |artist| %>
+  <div class="card-small">
+  <%= cl_image_tag artist.photo.key, :width => 300 %>
+  <div class="card-body">
+    <h5><%= link_to artist.artist_name, user_path(artist) %></h5>
+    <h6><%= artist.location %></h6>
+    <p class="card-small-description"><%= artist.description %></p>
+    <div class="d-flex">
+      <h5>£<%= artist.price %></h5>
+    <%= link_to "Book now", new_user_booking_path(artist), class: "btn-light" %>
+    </div>
+  </div>
+</div>
   <% end %>
+
 </div>
