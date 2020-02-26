@@ -13,10 +13,24 @@
 }
 
 .btn-light {
-  margin-right: 16px;
   padding: 4px 16px;
   background-color: white;
   color: black;
+  border-radius: 40px;
+  font-family: $sub-title;
+  border: 1px solid black;
+  transition: 0.3s;
+  &:hover {
+    color: $pink;
+    text-decoration: none;
+    border: 1px solid black
+  }
+}
+
+.btn-sub {
+  margin-right: 16px;
+  padding: 0px;
+  color: white;
   border-radius: 40px;
   font-family: $sub-title;
   border: 1px solid black;
