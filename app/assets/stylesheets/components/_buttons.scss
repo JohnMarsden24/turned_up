@@ -1,11 +1,49 @@
-.btn {
+.btn-dark {
   margin-right: 16px;
   padding: 4px 16px;
   background-color: black;
   color: white;
   border-radius: 40px;
   font-family: $sub-title;
+  transition: 0.3s;
   &:hover {
     color: $pink;
+    text-decoration: none;
+  }
+}
+
+.btn-light {
+  margin-right: 16px;
+  padding: 4px 16px;
+  background-color: white;
+  color: black;
+  border-radius: 40px;
+  font-family: $sub-title;
+  border: 1px solid black;
+  transition: 0.3s;
+  &:hover {
+    color: $pink;
+    text-decoration: none;
+    border: 1px solid black
+  }
+}
+
+.search-form {
+  padding-top: 18px;
+
+  .search-form-input {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  }
+  .search-form-btn {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: black;
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+   &:hover {
+    color: $pink;
+   }
   }
 }

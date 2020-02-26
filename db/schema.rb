@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_161030) do
     t.bigint "artist_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "confirmed", default: false
     t.index ["artist_id"], name: "index_bookings_on_artist_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

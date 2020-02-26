@@ -4,16 +4,10 @@
 
   <h1><%= @user.artist_name %></h1>
 
-  <!-- <p><img src="<%= @user.photo %>" style="width:600px;height:400px";></p> -->
+  <p><%= cl_image_tag @user.avatar.key, :radius=>"max" %></p>
 
-  <% @user.photos.each do |photo| %>
-  <%= climage_tag photo.key %>
-  <% end %>
-
- <!--  <p><%#= cl_image_tag @user.photos.key %></p> -->
-
-
-
+  <p><%= cl_image_tag @user.photo.key %></p>
+>>>>>>> master
 
   <p><%= @user.description %></p>
   <p><%= @user.location %></p>
@@ -24,7 +18,7 @@
 
 <h1><%= @user.user_name %></h1>
 
-  <p><%= cl_image_tag @user.avatar.key %></p>
+  <p><%= cl_image_tag @user.avatar.key, :radius=>"max" %></p>
   <p><%= @user.email %></p>
   <p><strong>Bookings</strong></p>
 
@@ -38,3 +32,19 @@
   <p><%= link_to "Change password", edit_user_password_path %></p>
 <% end %>
 
+<% if @user.artist == true %> <br>
+--------------------------------
+  <h3>Reviews</h3>
+--------------------------------
+    <% @user.reviewed.each do |review| %>
+      <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
+      <h4><%= "Posted by #{review.user.user_name}" %></h5>
+      <p><%= review.content %></p>
+        <% current_user.nil? ? u = false : u = current_user.id %>
+        <% if review.user_id == u %>
+          <%= link_to "Delete review", review_path(review), method: :delete %> |
+          <%= link_to "Edit your review",  edit_review_path(review) %>
+        <% end %>
+    <% end %>
+    <br> <%= link_to "Add a review", new_user_review_path(@user) %>
+  <% end %>
