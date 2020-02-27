@@ -1,7 +1,7 @@
 <div class="container review_form log-in text-center">
   <% @artist.photo.attached? ? photo_key = @artist.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
   <div><%= cl_image_tag photo_key, class:"thumbnail-img pt-5" %></div>
-    <div class="row">
+    <div class="row mt-0">
       <div class="mx-auto text-center pt-0">
         <h1 class="display-3 py-4 text-truncate">Leave a review!</h1>
         <div class="px-2">
