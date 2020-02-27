@@ -1,8 +1,13 @@
 class BookingsController < ApplicationController
 
   def new
-    @booking = Booking.new
-    @artist = User.find(params[:user_id])
+    if current_user
+      @booking = Booking.new
+      @artist = User.find(params[:user_id])
+    else
+      flash[:error] = "Must be signed in"
+      redirect_to new_user_session_path
+    end
   end
 
   def create
