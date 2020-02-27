@@ -1,7 +1,18 @@
-<h1>Leave a review</h1>
-
-<%= simple_form_for([@artist, @review]) do |f| %>
-<%= f.input :rating %>
-<%= f.input :content %>
-<%= f.submit "submit review", class:"btn-light" %>
-<% end %>
+<div class="container review_form log-in text-center">
+  <% @artist.photo.attached? ? photo_key = @artist.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
+  <div><%= cl_image_tag photo_key, class:"thumbnail-img pt-5" %></div>
+    <div class="row">
+      <div class="mx-auto text-center pt-0">
+        <h1 class="display-3 py-4 text-truncate">Leave a review!</h1>
+        <div class="px-2">
+          <%= simple_form_for([@artist, @review]) do |f| %>
+          <div class="d-flex justify-content-around flex-shrink">
+            <p><%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id:"review_rating" %></p>
+          </div>
+            <p><%= f.input :content, placeholder: "Share details about your experience!"%></p>
+            <%= f.submit "submit review", class:"btn-light" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
