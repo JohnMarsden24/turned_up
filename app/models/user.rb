@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  include PgSearch::Model
+
   has_many :reviews, class_name: "Review", foreign_key: "user_id", dependent: :destroy
   has_many :reviewed, class_name: "Review", foreign_key: "artist_id", dependent: :destroy
 
@@ -16,4 +18,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  pg_search_scope :search_by_everything,
+    against: [ :artist_name, :location, :description, :genre ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

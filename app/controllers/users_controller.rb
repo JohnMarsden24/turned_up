@@ -4,7 +4,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    @artists = User.where(artist: true)
+    # @artists = User.where(artist: true)
+    if params[:query].present?
+      # sql_query = "artist_name ILIKE :query OR description ILIKE :query OR location ILIKE :query OR genre ILIKE :query"
+      # @artists = User.where(sql_query, query: "%#{params[:query]}%")
+      @artists = User.search_by_everything(params[:query])
+    else
+      @artists = User.where(artist: true)
+    end
   end
 
   def show
