@@ -14,16 +14,14 @@
 
 .btn-light {
   padding: 4px 16px;
-  background-color: white;
-  color: black;
-  border-radius: 40px;
+  background-color: $pink;
+  color: white;
   font-family: $sub-title;
-  border: 1px solid black;
   transition: 0.3s;
   &:hover {
     color: $pink;
+    background-color: white;
     text-decoration: none;
-    border: 1px solid black
   }
 }
 
