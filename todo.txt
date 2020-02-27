@@ -1,6 +1,6 @@
 1. Refactor
 2. Sort out CSS
-3. Index page scroll
+
 4. Add back button
 5. Implement search
 6. Show page layout
@@ -9,6 +9,3 @@
 9. User page layout
 10. Social media links on show page
 11. Look into tags
-12. Remove circular avatar
-13. Add artist user page
-14. Double booking validation

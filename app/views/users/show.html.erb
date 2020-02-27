@@ -1,48 +1,28 @@
-<%#= link_to "turned up", root_path  %>
-
-<% if @user.artist %>
-  <h1 class="py-2"><%= @user.artist_name %></h1>
-  <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %>, £<%= @user.price %>/night</p>
-  <p class="book-now"><%=link_to '<i class=" btn btn-light">Book now</i>'.html_safe, new_user_booking_path(@user) %></p>
-  <%#= cl_image_tag @user.avatar.key, :radius=>"max", :width => 150 %>
-  <% @user.photo.attached? ? photo_key = @user.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
-  <p><%= cl_image_tag photo_key %></p>
-  <p class="user-description"><%= @user.description %></p>
-  <span><%= @user.genre %></span>
+<% if current_user.nil? %>
+  <%= render "shared/userprofile.html.erb" %>
 <% else %>
-
-<div class="user-profile">
-  <h1><%= @user.user_name %></h1>
-    <% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
-    <p><%= cl_image_tag avatar_key, :radius=>"max", :width => 150 %></p>
-    <p><%= @user.email %></p>
-    <h4><strong>Bookings</strong></h4>
-
-    <% @user.bookings.each do |booking| %>
-      <p><%= booking.artist.artist_name %> | <%= booking.date %></p>
-    <% end %>
-
+  <% if @user.id == current_user.id  %>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookings</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <%= render "shared/userprofile.html.erb" %>
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <%= render "shared/userbookings.html.erb" %>
+        <p><%= link_to "Edit Profile", edit_user_path(@user), class: "btn-light" %></p>
+        <p><%= link_to "Change password", edit_user_password_path, class: "btn-sub" %></p>
+      </div>
+    </div>
+  <% else %>
+    <%= render "shared/userprofile.html.erb" %>
   <% end %>
-
-<% if @user == current_user %>
-  <p><%= link_to "Edit Profile", edit_user_path(@user), class: "btn-light" %></p>
-  <p><%= link_to "Change password", edit_user_password_path, class: "btn-sub" %></p>
 <% end %>
 
-<% if @user.artist == true %> <br><br>
---------------------------------
-  <h3>Reviews</h3>
---------------------------------
-    <% @user.reviewed.each do |review| %>
-      <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
-      <h4><%= "Posted by #{review.user.user_name}" %></h5>
-      <p><%= review.content %></p>
-        <% current_user.nil? ? u = false : u = current_user.id %>
-        <% if review.user_id == u %>
-          <%= link_to "Delete review", review_path(review), method: :delete %> |
-          <%= link_to "Edit your review",  edit_review_path(review) %>
-        <% end %>
-    <% end %>
-    <br> <%= link_to '<i class=" btn btn-light">Add a review</i>'.html_safe, new_user_review_path(@user) %>
-  <% end %>
-</div>
+

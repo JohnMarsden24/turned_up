@@ -1,7 +1,11 @@
+
+
+
 <div class="booking-form">
   <%= simple_form_for([@artist, @booking]) do |f|%>
     <%= f.input :artist_id, as: :hidden, input_html: { value: @artist.id } %>
     <%= f.input :date %>
+    <p><%= @error_message %></p>
     <%= f.button :submit, class: "btn btn-light" %>
   <% end %>
 </div>
