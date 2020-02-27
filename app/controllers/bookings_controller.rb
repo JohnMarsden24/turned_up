@@ -11,6 +11,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to user_path(current_user)
     else
+      @error_message = @booking.errors.full_messages[0]
+      new
       render :new
     end
   end
