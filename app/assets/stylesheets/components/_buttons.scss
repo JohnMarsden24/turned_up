@@ -40,25 +40,4 @@
   }
 }
 
-.search-form {
-  padding-top: 18px;
 
-  .search-form-input {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  }
-  .search-form-btn {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border: black;
-  background-color: black;
-  color: white;
-  transition: 0.3s;
-  padding: 4px 8px;
-  border: 1px solid white;
-   &:hover {
-    text-decoration: none;
-    color: $pink;
-   }
-  }
-}

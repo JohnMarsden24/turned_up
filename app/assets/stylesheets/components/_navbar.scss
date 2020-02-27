@@ -8,17 +8,33 @@
   height: 10vh;
   z-index: 1;
 
-  .navbar-home {
-    h1 {
-      margin: 0 0 0 16px;
-      transition: 0.3s;
+  h1 {
+    margin: 0 0 0 16px;
+    transition: 0.3s;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    :hover {
+      color: $pink
     }
-    a {
-      text-decoration: none;
-      color: black;
-      :hover {
-        color: $pink
-      }
+  }
+
+  h6 {
+    font-family: $sub-title;
+    padding-right: 16px;
+    margin: 0px;
+  }
+
+  .nav-bar-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search-form {
+      padding-top: 8px;
+      margin-left: 16px;
     }
   }
 
@@ -27,30 +43,24 @@
     justify-content: center;
     align-items: center;
     margin-right: 16px;
+  }
 
-    h6 {
-      font-family: $sub-title;
-      padding-right: 16px;
-      margin: 0px;
+  .dropdown {
+    a:hover {
+      background-color: $pink;
     }
-    .dropdown {
-      a:hover {
-        background-color: $pink;
-      }
-    }
+  }
 
-
-    .navbar-user-photo {
-      width: 48px;
-      height: 48px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 50%;
-      border: 3px solid black;
-      transition: 0.3s;
-      &:hover {
-        opacity: .5;
-      }
+  .navbar-user-photo {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid black;
+    transition: 0.3s;
+    &:hover {
+      opacity: .5;
     }
   }
 }

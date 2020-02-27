@@ -1,9 +1,13 @@
 class ReviewsController < ApplicationController
 
   def new
-    @review = Review.new
-    @artist = User.find(params[:user_id])
-
+    if current_user
+      @review = Review.new
+      @artist = User.find(params[:user_id])
+    else
+      flash[:error] = "Must be signed in"
+      redirect_to new_user_session_path
+    end
   end
 
   def create

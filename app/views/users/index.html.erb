@@ -1,4 +1,10 @@
 <div class="listings">
+
+  <% if @artists.count == 0 %>
+  <%= "Oops! There are no results for your search! Become an artist or search for another..." %>
+  <% else %>
+
+
   <% @artists.each do |artist| %>
     <div class="card-small">
       <% artist.photo.attached? ? photo_key = artist.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
@@ -21,3 +27,5 @@
     </div>
   <% end %>
 </div>
+
+<% end %>

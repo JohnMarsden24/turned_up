@@ -1,7 +1,12 @@
 <div class="navbar">
-  <div class="navbar-home">
-    <a href="/"><h1>turned up</h1></a>
+  <div class="nav-bar-left">
+    <%= link_to root_path do  %>
+      <h1>turned up</h1>
+    <% end %>
+<%= render "shared/search" unless url_for == root_path %>
   </div>
+  <div class="navbar-home">
+
   <div class="navbar-user">
     <% if current_user %>
     <h6><%= current_user.user_name %></h6>
@@ -23,5 +28,8 @@
     <% end %>
   </div>
 </div>
+
+
+  </div>
 
 
