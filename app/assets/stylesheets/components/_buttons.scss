@@ -18,6 +18,39 @@
   color: white;
   font-family: $sub-title;
   transition: 0.3s;
+  border: none;
+  &:hover {
+    color: $pink;
+    background-color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-light-lrg {
+  padding: 4px 16px;
+  background-color: $pink;
+  color: white;
+  font-family: $sub-title;
+  font-size: 24px;
+  transition: 0.3s;
+  border: none;
+  &:hover {
+    color: $pink;
+    background-color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-light-full-size {
+  display:inline-block;
+  width: 100%;
+  padding: 4px 16px;
+  background-color: $pink;
+  color: white;
+  font-family: $sub-title;
+  font-size: 24px;
+  transition: 0.3s;
+  border: none;
   &:hover {
     color: $pink;
     background-color: white;

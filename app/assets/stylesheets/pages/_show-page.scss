@@ -1,0 +1,54 @@
+.show-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 32px;
+  padding: 16px;
+
+  h1 {
+    font-family: $sub-title;
+  }
+
+  h5 {
+    font-family: $sub-title;
+  }
+
+  .show-image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position:relative;
+    a {
+      position: absolute;
+      bottom: 0;
+      right:0;
+    }
+  }
+
+  .show-page-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .show-page-reviews {
+    background-color: rgba(255, 255, 255, 0.15);
+    height: 80vh;
+    overflow: scroll;
+  }
+
+  .show-review {
+    padding: 16px;
+    border-bottom: 1px solid white;
+  }
+
+  .show-review-user-name {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .show-page-add-review {
+    text-align: center;
+  }
+}
+
