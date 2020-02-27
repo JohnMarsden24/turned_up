@@ -3,7 +3,7 @@
   <% @user.booked.each do |booking| %>
     <div class="card-product">
       <% booking.artist.photo.attached? ? photo_key = booking.artist.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
-      <img src="https://res.cloudinaary.com/dyyo3sihs/image/upload/v1582723530/<%= photo_key %>" />
+      <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= photo_key %>" />
       <div class="card-product-infos">
         <h2><%= booking.artist.artist_name %> | <%= booking.date %></h2>
         <p><%= booking.artist.description %></p>
