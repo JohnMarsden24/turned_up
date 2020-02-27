@@ -1,12 +1,49 @@
 <% if @user.artist %>
-  <h1 class="py-2"><%= @user.artist_name %></h1>
-  <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %>, £<%= @user.price %>/night</p>
-  <p class="book-now"><%=link_to '<i class=" btn btn-light">Book now</i>'.html_safe, new_user_booking_path(@user) %></p>
-  <%#= cl_image_tag @user.avatar.key, :radius=>"max", :width => 150 %>
-  <% @user.photo.attached? ? photo_key = @user.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
-  <p><%= cl_image_tag photo_key %></p>
-  <p class="user-description"><%= @user.description %></p>
-  <span><%= @user.genre %></span>
+  <div class="show-page">
+    <div class="card-small">
+      <% @user.photo.attached? ? photo_key = @user.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
+      <div class="show-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= photo_key %>')">
+        <%= link_to "Book now", new_user_booking_path(@user), class: "btn-light-lrg" %>
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <div class="card-title">
+            <h1><%= @user.artist_name%></h1>
+            <h2>£<%= @user.price %></h2>
+          </div>
+          <p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
+          <p class="card-description"><%= @user.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-page-right">
+      <div class="show-page-reviews">
+      <% @user.reviewed.each do |review| %>
+      <div class="show-review">
+        <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
+        <p><%= review.content %></p>
+        <p class="show-review-user-name"><em><%= "Posted by #{review.user.user_name}" %></em></p>
+        <% current_user.nil? ? u = false : u = current_user.id %>
+          <% if review.user_id == u %>
+          <%= link_to "Delete review", review_path(review), method: :delete %> |
+          <%= link_to "Edit your review",  edit_review_path(review) %>
+        <% end %>
+      </div>
+  <% end %>
+
+      </div>
+      <div class="show-page-add-review">
+  <%= link_to "Add a review", new_user_review_path(@user), class: "btn-light-full-size" %>
+
+      </div>
+
+  </div>
+
+</div>
+
+
+
 <% else %>
 
   <div class="user-profile">
@@ -18,19 +55,6 @@
 <% end %>
 
 
-<% if @user.artist == true %> <br><br>
-  <span>--------------------------------</span>
-  <h3>Reviews</h3>
-  <span>--------------------------------</span>
-  <% @user.reviewed.each do |review| %>
-    <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
-    <h4><%= "Posted by #{review.user.user_name}" %></h5>
-    <p><%= review.content %></p>
-      <% current_user.nil? ? u = false : u = current_user.id %>
-      <% if review.user_id == u %>
-        <%= link_to "Delete review", review_path(review), method: :delete %> |
-        <%= link_to "Edit your review",  edit_review_path(review) %>
-      <% end %>
-  <% end %>
-  <br> <%= link_to '<i class=" btn btn-light">Add a review</i>'.html_safe, new_user_review_path(@user) %>
-<% end %>
+
+
+
