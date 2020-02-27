@@ -7,6 +7,12 @@
       <div class="card-product-infos">
         <h2><%= booking.artist.artist_name %> | <%= booking.date %></h2>
         <p><%= booking.artist.description %></p>
+        <div class="p-5">
+          <%= simple_form_for(booking) do |f| %>
+            <%= f.input :confirmed %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
@@ -17,8 +23,14 @@
       <% booking.user.avatar.attached? ? photo_key = booking.user.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
       <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= photo_key %>" />
       <div class="card-product-infos">
-        <h2><%= booking.user.user_name %></h2>
+        <h2><%= booking.artist.artist_name %></h2>
         <p><strong><%= booking.date %></strong></p>
+        <% if booking.confirmed  %>
+          <p style="color: #FF0083;"><i class="fas fa-check-circle"></i> Confirmed</p>
+        <% else %>
+          <p style="color: orange;"><i class="fas fa-question-circle"></i> Pending</p>
+        <% end %>
+
       </div>
     </div>
   <% end %>
