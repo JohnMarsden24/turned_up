@@ -2,7 +2,8 @@
 <div class="listings">
   <% @artists.each do |artist| %>
     <div class="card-small">
-      <div class="card-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= artist.photo.key.html_safe %>')"></div>
+      <% artist.photo.attached? ? photo_key = artist.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
+      <div class="card-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= photo_key %>')"></div>
         <div class="card-body">
         <h5><%= link_to artist.artist_name, user_path(artist) %></h5>
         <h6><%= artist.location %></h6>
