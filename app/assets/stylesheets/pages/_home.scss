@@ -1,1 +1,16 @@
-// Specific CSS for your home-page
+.banner {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.banner-text {
+  h1 {
+    font-size: 80px;
+  }
+
+  h2 {
+    font-family: $sub-title;
+    color: $pink;
+  }
+}

@@ -1,4 +1,5 @@
 <% if @user.artist %>
+
   <div class="show-page">
     <div class="card-small">
       <% @user.photo.attached? ? photo_key = @user.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
@@ -20,29 +21,23 @@
     <div class="show-page-right">
       <div class="show-page-reviews">
       <% @user.reviewed.each do |review| %>
-      <div class="show-review">
-        <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
-        <p><%= review.content %></p>
-        <p class="show-review-user-name"><em><%= "Posted by #{review.user.user_name}" %></em></p>
-        <% current_user.nil? ? u = false : u = current_user.id %>
+        <div class="show-review">
+          <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
+          <p><%= review.content %></p>
+          <p class="show-review-user-name"><em><%= "Posted by #{review.user.user_name}" %></em></p>
+          <% current_user.nil? ? u = false : u = current_user.id %>
           <% if review.user_id == u %>
-          <%= link_to "Delete review", review_path(review), method: :delete %> |
-          <%= link_to "Edit your review",  edit_review_path(review) %>
-        <% end %>
-      </div>
-  <% end %>
-
+            <%= link_to "Delete review", review_path(review), method: :delete %> |
+            <%= link_to "Edit your review",  edit_review_path(review) %>
+          <% end %>
+        </div>
+      <% end %>
       </div>
       <div class="show-page-add-review">
-  <%= link_to "Add a review", new_user_review_path(@user), class: "btn-light-full-size" %>
-
+        <%= link_to "Add a review", new_user_review_path(@user), class: "btn-light-full-size" %>
       </div>
-
+    </div>
   </div>
-
-</div>
-
-
 
 <% else %>
 
@@ -52,6 +47,7 @@
     <p><%= cl_image_tag avatar_key, :width => 150 %></p>
     <p><%= @user.email %></p>
   </div>
+
 <% end %>
 
 

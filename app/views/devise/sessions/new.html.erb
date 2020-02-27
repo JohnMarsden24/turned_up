@@ -1,11 +1,9 @@
-<div class="row">
-  <div class="col-4">
-    <div class="log-in">
-      <% flash.each do |key, value| %>
-        <%= content_tag :div, value, class: "flash #{key} alert alert-warning"%>
-      <% end %>
-    <h2 class="py-2">Log in</h2>
-
+<div class="log-in">
+  <div class="log-in-box">
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key} alert alert-warning"%>
+    <% end %>
+    <h2>Log in</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
@@ -17,15 +15,12 @@
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
-
       <div class="form-actions">
         <%= f.button :submit, "Log-in", class:"btn-light" %>
       </div>
     <% end %>
-    <div class="py-3">
-    <%= render "devise/shared/links" %>
-    </div>
-
+    <div class="log-in-links">
+      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

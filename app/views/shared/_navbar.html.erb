@@ -1,35 +1,28 @@
 <div class="navbar">
   <div class="nav-bar-left">
-    <%= link_to root_path do  %>
-      <h1 id="logo">turned up</h1>
-    <% end %>
-<%= render "shared/search" unless url_for == root_path %>
+    <%= link_to "turned up", root_path %>
+    <%= render "shared/search" unless url_for == root_path %>
   </div>
-  <div class="navbar-home">
-
   <div class="navbar-user">
     <% if current_user %>
-    <h6><%= current_user.user_name %></h6>
-
+      <h6><%= current_user.user_name %></h6>
       <div class="dropdown">
         <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% current_user.avatar.attached? ? avatar_key = current_user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
-          <div class="navbar-user-photo" id="boots" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= avatar_key.html_safe %>')"></div>
-        </a>
+        <% current_user.avatar.attached? ? avatar_key = current_user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
+        <div class="navbar-user-photo" id="boots" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= avatar_key.html_safe %>')">
+        </div>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
           <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
           <%#= link_to "Bookings", user_bookings_path(current_user), class: "dropdown-item" %>
-          <div class="dropdown-divider"></div>
+          <div class="dropdown-divider">
+          </div>
           <%= link_to "Sign out", destroy_user_session_path, method:"delete", class: "dropdown-item" %>
         </div>
       </div>
     <% else %>
-    <%= link_to "Sign in", new_user_session_path, class: "btn-dark"  %>
+    <%= link_to "Sign in", new_user_session_path, class: "btn-light"  %>
     <% end %>
   </div>
 </div>
-
-
-  </div>
 
 

@@ -1,19 +1,29 @@
 .log-in {
   height: 80vh;
-}
-
-.br-widget {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+
+  h2 {
+    font-family: $sub-title;
+  }
+
+  .log-in-box {
+    width: 25%;
+  }
 }
 
-.row {
-  margin-top: 20vh;
+// .br-widget {
+//   display: flex;
+//   justify-content: center;
+//   text-align: center;
+// }
 
-}
+// .row {
+//   padding-top: 100px;
+// }
 
-.row-register {
-  margin-top: 10vh;
-}
+// .row-register {
+//   // margin-top: 10vh;
+// }
 

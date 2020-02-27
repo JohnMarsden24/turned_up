@@ -8,19 +8,6 @@
   height: 10vh;
   z-index: 1;
 
-  h1 {
-    margin: 0 0 0 16px;
-    transition: 0.3s;
-  }
-
-  #logo {
-    text-decoration: none;
-    color: black;
-    :hover {
-      color: $pink
-    }
-  }
-
   h6 {
     font-family: $sub-title;
     padding-right: 16px;
@@ -31,6 +18,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    a {
+      color: black;
+      font-family: $title;
+      font-size: 36px;
+      margin-left: 16px;
+      transition: 0.3s;
+      &:hover {
+        color: $pink;
+        text-decoration: none;
+      }
+    }
 
     .search-form {
       padding-top: 8px;
