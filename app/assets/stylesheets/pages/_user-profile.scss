@@ -1,0 +1,33 @@
+.user-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-tabs {
+  border: 0px;
+}
+
+#home-tab {
+  color: white;
+  transition: 0.3s;
+  border: 0px;
+  background-color: black;
+  &:hover {
+    color: $pink;
+    text-decoration: none;
+    border: 0px;
+  }
+}
+
+#profile-tab {
+  color: white;
+  transition: 0.3s;
+  border: 0px;
+  background-color: black;
+  &:hover {
+    color: $pink;
+    text-decoration: none;
+    border: 0px;
+  }
+}

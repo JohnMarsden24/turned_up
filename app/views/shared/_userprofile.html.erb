@@ -19,7 +19,7 @@
       <% if @user.spotify_link.present? %>
           <% spotify_link = @user.spotify_link %>
           <% spotify_link.gsub!("open.spotify.com/","open.spotify.com/embed/") %>
-          <iframe src=<%= spotify_link %> width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <iframe src=<%= spotify_link %>, width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       <% end %>
     </div>
 
@@ -47,10 +47,24 @@
 <% else %>
 
   <div class="user-profile">
-    <h1><%= @user.user_name %></h1>
-    <% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
-    <p><%= cl_image_tag avatar_key, :width => 150 %></p>
-    <p><%= @user.email %></p>
+    <div class="user-card">
+      <div class="user-card-top">
+        <% @user.avatar.attached? ? avatar_key = @user.avatar.key : avatar_key = "v4yr2mopirs85v96tbbc2mxfiarp"%>
+        <div class="user-card-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= avatar_key %>')">
+        </div>
+        <div class="user-card-top-right">
+          <%= link_to "Edit profile", edit_user_path(@user), class: "btn-light" %>
+          <div class="user-card-top-details">
+            <h1><%= @user.user_name %></h1>
+            <div class="user-card-break"></div>
+            <h3><%= @user.email %></h3>
+          </div>
+        </div>
+      </div>
+      <div class="user-card-bottom">
+        <h3>You've booked <%= @user.bookings.count %> artists</h3>
+      </div>
+    </div>
   </div>
 
 <% end %>
