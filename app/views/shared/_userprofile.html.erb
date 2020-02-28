@@ -18,6 +18,7 @@
       </div>
     </div>
 
+
     <div class="show-page-right">
       <div class="show-page-reviews">
       <% @user.reviewed.each do |review| %>
@@ -33,6 +34,7 @@
         </div>
       <% end %>
       </div>
+    <% unless current_user == @user %>
       <div class="show-page-add-review">
         <%= simple_form_for([@user, @review], remote: true) do |f| %>
           <%= f.input :content, label: false, placeholder: "Share details about your experience!"%>
@@ -44,6 +46,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
 <% else %>
 
