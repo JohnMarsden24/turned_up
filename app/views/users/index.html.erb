@@ -7,7 +7,7 @@
 
   <% @artists.each do |artist| %>
     <div class="card-small">
-      <% artist.photo.attached? ? photo_key = artist.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
+      <% artist.photo.attached? ? photo_key = artist.photo.key : photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
       <div class="card-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= photo_key %>')">
       </div>
       <div class="card-body">
