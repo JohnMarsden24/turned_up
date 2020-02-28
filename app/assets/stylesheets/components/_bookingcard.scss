@@ -33,3 +33,14 @@
   padding: 16px;
 }
 
+.bookings-container {
+  min-height: 80vh;
+  h2 {
+    font-family: $sub-title;
+  }
+
+  h4 {
+    font-family: $sub-title;
+    padding: 16px 0;
+  }
+}
