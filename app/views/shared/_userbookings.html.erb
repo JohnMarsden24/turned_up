@@ -21,7 +21,7 @@
       <% booking.artist.photo.attached? ? booking_photo_key = booking.artist.photo.key : booking_photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
       <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= booking_photo_key %>" />
       <div class="card-product-infos">
-        <h2><%= booking.artist.artist_name%> | <%= booking.date %></h2>
+        <h2><%= booking.artist.artist_name%></h2>
         <p><strong><%= booking.date %></strong></p>
         <% if booking.confirmed  %>
           <p style="color: #FF0083;"><i class="fas fa-check-circle"></i> Confirmed</p>
