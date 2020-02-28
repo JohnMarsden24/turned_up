@@ -17,7 +17,8 @@
           <% @user.reviewed.each do |review| %>
             <% ratings << review.rating %>
           <% end %>
-          <p><%= ratings.length == 0 ? "No Ratings" :  "★" * (ratings.sum / ratings.length) %><%= "☆" * (5 - (ratings.sum / ratings.length)) %></p>
+          <% rating_num = (ratings.sum / (ratings.length == 0 ? 1 : ratings.length)) %>
+          <p><%= ratings.length == 0 ? "No Ratings" :  ("★" * rating_num) + ("☆" * (5 - rating_num)) %></p>
           <p class="card-description"><%= @user.description %></p>
         </div>
       </div>
