@@ -13,6 +13,11 @@
             <h2>£<%= @user.price %></h2>
           </div>
           <p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
+          <% ratings = [] %>
+          <% @user.reviewed.each do |review| %>
+            <% ratings << review.rating %>
+          <% end %>
+          <p><%= ratings.length == 0 ? "No Ratings" :  "★" * (ratings.sum / ratings.length) %><%= "☆" * (5 - (ratings.sum / ratings.length)) %></p>
           <p class="card-description"><%= @user.description %></p>
         </div>
       </div>
