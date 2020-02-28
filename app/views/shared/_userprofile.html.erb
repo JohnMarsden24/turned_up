@@ -17,7 +17,9 @@
         </div>
       </div>
       <% if @user.spotify_link.present? %>
-          <iframe src=<%= @user.spotify_link %> width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <% spotify_link = @user.spotify_link %>
+          <% spotify_link.gsub!("open.spotify.com/","open.spotify.com/embed/") %>
+          <iframe src=<%= spotify_link %> width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       <% end %>
     </div>
 
