@@ -1,24 +1,44 @@
 <% if @user.artist %>
   <h4><strong>Bookings</strong></h4>
   <% if @user.booked.length == 0 %>
-    <h5>No bookings yet...</h5>
+    <h5>You haven't been booked yet...</h5>
     <h5> -------------- </h5>
   <% else %>
   <% end %>
-  <% @user.booked.each do |booking| %>
+  <div class="artist-booked">
+    <% @user.booked.each do |booking| %>
+      <div class="card-product">
+        <% booking.user.avatar.attached? ? user_avatar_key = booking.user.avatar.key : user_avatar_key = "e1tikr33400esm4prcouknjq4xzc"%>
+        <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= user_avatar_key %>">
+        <div class="card-product-infos">
+          <h2><%= booking.user.user_name %></h2>
+          <p><%= booking.date %></p>
+          <%= simple_form_for(booking) do |f| %>
+            <%= f.input :confirmed, label: "Confirm booking", label_html: { class: 'confirm-booking' } %>
+            <%= f.button :submit, label_html: { class: 'confirm-booking-submit' } %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="user-booked">
+    <h4><strong>Booked Arists</strong></h4>
+    <% @user.bookings.each do |booking| %>
     <div class="card-product">
-      <% booking.user.avatar.attached? ? user_avatar_key = booking.user.avatar.key : user_avatar_key = "e1tikr33400esm4prcouknjq4xzc"%>
-      <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= user_avatar_key %>">
+      <% booking.artist.photo.attached? ? booking_photo_key = booking.artist.photo.key : booking_photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
+      <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= booking_photo_key %>" />
       <div class="card-product-infos">
-        <h2><%= booking.user.user_name %></h2>
-        <p><%= booking.date %></p>
-        <%= simple_form_for(booking) do |f| %>
-          <%= f.input :confirmed, label: "Confirm booking", label_html: { class: 'confirm-booking' } %>
-          <%= f.button :submit, label_html: { class: 'confirm-booking-submit' } %>
+        <h2><%= booking.artist.artist_name%></h2>
+        <p><strong><%= booking.date %></strong></p>
+        <% if booking.confirmed  %>
+          <p style="color: #FF0083;"><i class="fas fa-check-circle"></i> Confirmed</p>
+        <% else %>
+          <p style="color: orange;"><i class="fas fa-question-circle"></i> Pending</p>
         <% end %>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 <% else %>
   <h4><strong>Bookings</strong></h4>
   <% if @user.bookings.length == 0 %>
