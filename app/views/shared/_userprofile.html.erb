@@ -18,22 +18,26 @@
       </div>
     </div>
 
-
     <div class="show-page-right">
       <div class="show-page-reviews">
-      <% @user.reviewed.each do |review| %>
-        <div class="show-review">
-          <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
-          <p><%= review.content %></p>
-          <p class="show-review-user-name"><em><%= "Posted by #{review.user.user_name}" %></em></p>
-          <% current_user.nil? ? u = false : u = current_user.id %>
-          <% if review.user_id == u %>
-            <%= link_to "✎",  edit_review_path(review), class:"text-white" %> |
-            <%= link_to "✖", review_path(review), method: :delete, class:"text-white" %>
+        <% if @user.reviewed.count == 0 %>
+        <h3>Be the first to leave a review!</h3>
+          <% else %>
+            <% @user.reviewed.each do |review| %>
+              <div class="show-review">
+                <h4><%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></h4>
+                <p><%= review.content %></p>
+                <p class="show-review-user-name"><em><%= "Posted by #{review.user.user_name}" %></em></p>
+                <% current_user.nil? ? u = false : u = current_user.id %>
+                <% if review.user_id == u %>
+                  <%= link_to "✎",  edit_review_path(review), class:"text-white" %> |
+                  <%= link_to "✖", review_path(review), method: :delete, class:"text-white" %>
+                <% end %>
+              </div>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
       </div>
+
     <% unless current_user == @user %>
       <div class="show-page-add-review">
         <%= simple_form_for([@user, @review], remote: true) do |f| %>
