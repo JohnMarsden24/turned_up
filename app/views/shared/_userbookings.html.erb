@@ -1,5 +1,10 @@
 <% if @user.artist %>
   <h4><strong>Bookings</strong></h4>
+  <% if @user.booked.length == 0 %>
+    <h5>No bookings yet...</h5>
+    <h5> -------------- </h5>
+  <% else %>
+  <% end %>
   <% @user.booked.each do |booking| %>
     <div class="card-product">
       <% booking.user.avatar.attached? ? user_avatar_key = booking.user.avatar.key : user_avatar_key = "e1tikr33400esm4prcouknjq4xzc"%>
@@ -16,6 +21,11 @@
   <% end %>
 <% else %>
   <h4><strong>Bookings</strong></h4>
+  <% if @user.bookings.length == 0 %>
+    <h5>No bookings yet...</h5>
+    <h5> -------------- </h5>
+  <% else %>
+  <% end %>
   <% @user.bookings.each do |booking| %>
     <div class="card-product">
       <% booking.artist.photo.attached? ? booking_photo_key = booking.artist.photo.key : booking_photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
