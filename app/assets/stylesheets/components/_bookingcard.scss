@@ -1,7 +1,7 @@
 .card-product {
   overflow: hidden;
   height: 120px;
-  background: white;
+  background: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   margin-bottom: 25px;
@@ -14,14 +14,14 @@
 }
 
 .card-product h2 {
-  color: black;
+  color: white;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  color: black;
+  color: white;
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;

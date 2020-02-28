@@ -1,4 +1,17 @@
+.no-results {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  h3 {
+    font-family: $sub-title;
+  }
+}
+
 .listings {
+  min-height: 80vh;
   display: grid;
   grid-gap: 16px;
   padding: 16px;

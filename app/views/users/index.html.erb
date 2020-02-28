@@ -1,23 +1,30 @@
+<% if @artists.count == 0 %>
+
+  <div class="no-results">
+    <h3>Oops! There are no results for your search! <br><br> Become an artist or search for another...</h3>
+  </div>
+
+<% else %>
+
 <div class="listings ">
-
-  <% if @artists.count == 0 %>
-  <%= "Oops! There are no results for your search! Become an artist or search for another..." %>
-  <% else %>
-
-
   <% @artists.each do |artist| %>
     <div class="card-small">
-      <% artist.photo.attached? ? photo_key = artist.photo.key : photo_key = "fp71jjubnm5abb4nx3exwvb5ow4u"%>
+      <% artist.photo.attached? ? photo_key = artist.photo.key : photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
       <div class="card-image" style="background-image: url('https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= photo_key %>')">
       </div>
       <div class="card-body">
         <div class="card-text">
           <div class="card-title">
-            <h4><%= link_to artist.artist_name[0, 20], user_path(artist), class: "card-link" %></h4>
-            <h6><%= artist.genre %></h6>
+            <% artist.artist_name.length >= 20 ? name = "#{artist.artist_name[0, 20]}.." : name = artist.artist_name %>
+            <h4><%= link_to name, user_path(artist), class: "card-link" %></h4>
+            <h6><%= artist.genre.capitalize %></h6>
           </div>
           <p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= artist.location %></p>
+          <% if artist.description.length >= 100 %>
           <p class="card-description"><%= artist.description[0, 100]%> . . . <%= link_to "more", user_path(artist), class: "card-link" %></p>
+          <% else %>
+          <p class="card-description"><%= artist.description%></p>
+          <% end %>
         </div>
         <div class="card-price-and-book">
           <h5>£<%= artist.price %></h5>

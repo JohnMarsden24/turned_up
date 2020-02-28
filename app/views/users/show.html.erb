@@ -13,6 +13,8 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <%= render "shared/userprofile.html.erb" %>
+        <p><%= link_to "Edit Profile", edit_user_path(@user), class: "btn-light" %></p>
+        <p><%= link_to "Change password", edit_user_password_path, class: "btn-sub" %></p>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <%= render "shared/userbookings.html.erb" %>
