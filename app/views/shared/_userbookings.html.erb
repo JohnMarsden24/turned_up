@@ -9,7 +9,7 @@
           <% booking.user.avatar.attached? ? user_avatar_key = booking.user.avatar.key : user_avatar_key = "e1tikr33400esm4prcouknjq4xzc"%>
           <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= user_avatar_key %>">
           <div class="card-product-infos">
-            <h2><%= booking.user.user_name %></h2>
+            <h2>Booked by <%= booking.user.user_name %></h2>
             <p><%= booking.date %></p>
             <%= simple_form_for(booking) do |f| %>
               <%= f.input :confirmed, label: "Confirm booking", label_html: { class: 'confirm-booking' } %>
