@@ -38,7 +38,7 @@
   }
 
   .show-review {
-    padding: 16px;
+
     border-bottom: 1px solid white;
   }
 
@@ -48,7 +48,13 @@
   }
 
   .show-page-add-review {
+    padding: 0px;
+    margin: 0px;
     text-align: center;
+  }
+
+  .review_content {
+    margin: 0px;
   }
 }
 

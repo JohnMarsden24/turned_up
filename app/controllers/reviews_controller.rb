@@ -13,12 +13,12 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @artist = User.find(params[:user_id])
-    @review.artist_id = params[:user_id]
+    @review.artist = @artist
     @review.user_id = current_user.id
     if @review.save
       redirect_to user_path(@artist)
     else
-      render :new
+      redirect_to user_path(@artist)
     end
   end
 
