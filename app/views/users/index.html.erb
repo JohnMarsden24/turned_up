@@ -15,7 +15,8 @@
       <div class="card-body">
         <div class="card-text">
           <div class="card-title">
-            <h4><%= link_to artist.artist_name[0, 20], user_path(artist), class: "card-link" %></h4>
+            <% artist.artist_name.length >= 20 ? name = "#{artist.artist_name[0, 20]}.." : name = artist.artist_name %>
+            <h4><%= link_to name, user_path(artist), class: "card-link" %></h4>
             <h6><%= artist.genre.capitalize %></h6>
           </div>
           <p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= artist.location %></p>
