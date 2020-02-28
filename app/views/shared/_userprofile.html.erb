@@ -16,6 +16,9 @@
           <p class="card-description"><%= @user.description %></p>
         </div>
       </div>
+      <% if @user.spotify_link.present? %>
+          <iframe src=<%= @user.spotify_link %> width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <% end %>
     </div>
 
     <div class="show-page-right">
