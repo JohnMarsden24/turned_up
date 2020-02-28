@@ -58,4 +58,13 @@
   }
 }
 
+.devise-links {
+  color: white;
+  transition: 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: $pink;
+  }
+}
+
 

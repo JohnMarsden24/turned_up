@@ -1,5 +1,5 @@
 .log-in {
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -11,19 +11,8 @@
   .log-in-box {
     width: 25%;
   }
+
+  .log-in-links {
+    padding-top: 32px;
+  }
 }
-
-// .br-widget {
-//   display: flex;
-//   justify-content: center;
-//   text-align: center;
-// }
-
-// .row {
-//   padding-top: 100px;
-// }
-
-// .row-register {
-//   // margin-top: 10vh;
-// }
-
