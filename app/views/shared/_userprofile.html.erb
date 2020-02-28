@@ -27,14 +27,20 @@
           <p class="show-review-user-name"><em><%= "Posted by #{review.user.user_name}" %></em></p>
           <% current_user.nil? ? u = false : u = current_user.id %>
           <% if review.user_id == u %>
-            <%= link_to "Delete review", review_path(review), method: :delete %> |
-            <%= link_to "Edit your review",  edit_review_path(review) %>
+            <%= link_to "✎",  edit_review_path(review), class:"text-white" %> |
+            <%= link_to "✖", review_path(review), method: :delete, class:"text-white" %>
           <% end %>
         </div>
       <% end %>
       </div>
       <div class="show-page-add-review">
-        <%= link_to "Add a review", new_user_review_path(@user), class: "btn-light-full-size" %>
+        <%= simple_form_for([@user, @review]) do |f| %>
+          <div class="d-flex justify-content-around">
+            <p><%= f.input :rating, collection: (1..5).to_a, label: false, id:"review_rating" %></p>
+          </div>
+          <%= f.input :content, label: false, placeholder: "Share details about your experience!"%>
+        <%= f.button :submit, "submit review", class:"btn-light-full-size" %>
+        <% end %>
       </div>
     </div>
   </div>
