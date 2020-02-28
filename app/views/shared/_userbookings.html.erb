@@ -1,65 +1,64 @@
-<% if @user.artist %>
 <div class="bookings-container">
-  <div class="artist-booked">
-    <% if @user.booked.length == 0 %>
-      <h4>You haven't been booked yet...</h4>
-    <% else %>
-      <h4>Your bookings</h4>
-      <% @user.booked.each do |booking| %>
-        <div class="card-product">
-          <% booking.user.avatar.attached? ? user_avatar_key = booking.user.avatar.key : user_avatar_key = "e1tikr33400esm4prcouknjq4xzc"%>
-          <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= user_avatar_key %>">
-          <div class="card-product-infos">
-            <h2>Booked by <%= booking.user.user_name %> for <%= booking.date %></h2>
-            <%= simple_form_for(booking) do |f| %>
-              <%= f.input :confirmed, label: "Confirm booking", label_html: { class: 'confirm-booking' } %>
-              <%= f.button :submit, label_html: { class: 'confirm-booking-submit' }, class: "btn-light" %>
-            <% end %>
+  <% if @user.artist %>
+    <div class="artist-booked">
+      <% if @user.booked.length == 0 %>
+        <h4>You haven't been booked yet...</h4>
+      <% else %>
+        <h4>Your bookings</h4>
+        <% @user.booked.each do |booking| %>
+          <div class="card-product">
+            <% booking.user.avatar.attached? ? user_avatar_key = booking.user.avatar.key : user_avatar_key = "e1tikr33400esm4prcouknjq4xzc"%>
+            <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= user_avatar_key %>">
+            <div class="card-product-infos">
+              <h2>Booked by <%= booking.user.user_name %> for <%= booking.date %></h2>
+              <%= simple_form_for(booking) do |f| %>
+                <%= f.input :confirmed, label: "Confirm booking", label_html: { class: 'confirm-booking' } %>
+                <%= f.button :submit, label_html: { class: 'confirm-booking-submit' }, class: "btn-light" %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-
-  <div class="user-booked">
-    <h4>Booked Arists</h4>
-    <% @user.bookings.each do |booking| %>
-    <div class="card-product">
-      <% booking.artist.photo.attached? ? booking_photo_key = booking.artist.photo.key : booking_photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
-      <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= booking_photo_key %>" />
-      <div class="card-product-infos">
-        <h2>Booked <%= booking.artist.artist_name%> for <%= booking.date %></h2>
-        <% if booking.confirmed  %>
-          <p style="color: #FF0083;"><i class="fas fa-check-circle"></i> Confirmed</p>
-        <% else %>
-          <p style="color: orange;"><i class="fas fa-question-circle"></i> Pending</p>
-        <% end %>
-      </div>
     </div>
-    <% end %>
-  </div>
-<% else %>
-  <h4><strong>Bookings</strong></h4>
-  <% if @user.bookings.length == 0 %>
-    <h5>No bookings yet...</h5>
-    <h5> -------------- </h5>
+
+    <div class="user-booked">
+      <h4>Booked Arists</h4>
+      <% @user.bookings.each do |booking| %>
+      <div class="card-product">
+        <% booking.artist.photo.attached? ? booking_photo_key = booking.artist.photo.key : booking_photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
+        <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= booking_photo_key %>" />
+        <div class="card-product-infos">
+          <h2>Booked <%= booking.artist.artist_name%> for <%= booking.date %></h2>
+          <% if booking.confirmed  %>
+            <p style="color: #FF0083;"><i class="fas fa-check-circle"></i> Confirmed</p>
+          <% else %>
+            <p style="color: orange;"><i class="fas fa-question-circle"></i> Pending</p>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
   <% else %>
-  <% end %>
-  <% @user.bookings.each do |booking| %>
-    <div class="card-product">
-      <% booking.artist.photo.attached? ? booking_photo_key = booking.artist.photo.key : booking_photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
-      <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= booking_photo_key %>" />
-      <div class="card-product-infos">
-        <h2><%= booking.artist.artist_name%></h2>
-        <p><strong><%= booking.date %></strong></p>
-        <% if booking.confirmed  %>
-          <p style="color: #FF0083;"><i class="fas fa-check-circle"></i> Confirmed</p>
-        <% else %>
-          <p style="color: orange;"><i class="fas fa-question-circle"></i> Pending</p>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
-<% end %>
 
+    <div class="user-booked">
+      <h4>Booked Arists</h4>
+      <% @user.bookings.each do |booking| %>
+      <div class="card-product">
+        <% booking.artist.photo.attached? ? booking_photo_key = booking.artist.photo.key : booking_photo_key = "by547qwzb0s6o2qefa0i31o7fpeb"%>
+        <img src="https://res.cloudinary.com/dyyo3sihs/image/upload/v1582723530/<%= booking_photo_key %>" />
+        <div class="card-product-infos">
+          <h2>Booked <%= booking.artist.artist_name%> for <%= booking.date %></h2>
+          <% if booking.confirmed  %>
+            <p style="color: #FF0083;"><i class="fas fa-check-circle"></i> Confirmed</p>
+          <% else %>
+            <p style="color: orange;"><i class="fas fa-question-circle"></i> Pending</p>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  <% end %>
+
+</div>
