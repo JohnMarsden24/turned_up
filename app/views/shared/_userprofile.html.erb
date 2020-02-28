@@ -12,13 +12,15 @@
             <h1><%= @user.artist_name%></h1>
             <h2>£<%= @user.price %></h2>
           </div>
-          <p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
-          <% ratings = [] %>
-          <% @user.reviewed.each do |review| %>
-            <% ratings << review.rating %>
-          <% end %>
-          <% rating_num = (ratings.sum / (ratings.length == 0 ? 1 : ratings.length)) %>
-          <p><%= ratings.length == 0 ? "No Ratings" :  ("★" * rating_num) + ("☆" * (5 - rating_num)) %></p>
+          <div class="card-location-and-rating">
+            <p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
+            <% ratings = [] %>
+            <% @user.reviewed.each do |review| %>
+              <% ratings << review.rating %>
+            <% end %>
+            <% rating_num = (ratings.sum / (ratings.length == 0 ? 1 : ratings.length)) %>
+            <p><%= ratings.length == 0 ? "No Ratings" :  ("★" * rating_num) + ("☆" * (5 - rating_num)) %> (<%= ratings.length %>) </p>
+          </div>
           <p class="card-description"><%= @user.description %></p>
         </div>
       </div>
@@ -30,9 +32,12 @@
     </div>
 
     <div class="show-page-right">
-      <div class="show-page-reviews">
-        <% if @user.reviewed.count == 0 %>
-        <h3>Be the first to leave a review!</h3>
+      <div class="show-page-right-container">
+        <div class="show-page-reviews">
+          <% if @user.reviewed.count == 0 %>
+            <div class="show-page-no-reviews">
+              <h3>Be the first to leave a review!</h3>
+            </div>
           <% else %>
             <% @user.reviewed.each do |review| %>
               <div class="show-review">
@@ -45,23 +50,24 @@
                   <%= link_to "✖", review_path(review), method: :delete, class:"text-white" %>
                 <% end %>
               </div>
-          <% end %>
+            <% end %>
         <% end %>
       </div>
 
-    <% unless current_user == @user %>
-      <div class="show-page-add-review">
-        <%= simple_form_for([@user, @review], remote: true) do |f| %>
-          <%= f.input :content, label: false, placeholder: "Share details about your experience!"%>
-          <div class="d-flex justify-content-around bg-white">
-            <p><%= f.input :rating, collection: (1..5).to_a, label: false, id:"review_rating" %></p>
-          </div>
-        <%= f.button :submit, "submit review", class:"btn-light-full-size" %>
-        <% end %>
-      </div>
+      <% unless current_user == @user %>
+        <div class="show-page-add-review">
+          <%= simple_form_for([@user, @review], remote: true) do |f| %>
+            <%= f.input :content, label: false, placeholder: "Share details about your experience!"%>
+              <div class="d-flex justify-content-around bg-white">
+               <p><%= f.input :rating, collection: (1..5).to_a, label: false, id:"review_rating" %></p>
+             </div>
+             <%= f.button :submit, "submit review", class:"btn-light-full-size" %>
+            <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
+</div>
 
 <% else %>
 

@@ -31,19 +31,39 @@
     align-items: center;
   }
 
+  .show-page-right-container {
+    position: sticky;
+    top: 75px;
+  }
+
   .show-page-reviews {
+
     background-color: rgba(255, 255, 255, 0.15);
-    height: 80vh;
     overflow: scroll;
+    height: 59vh;
+  }
+
+  .show-page-no-reviews {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    h3 {
+      font-family: $sub-title;
+    }
   }
 
   .show-review {
-
     border-bottom: 1px solid white;
+    padding: 8px;
+    p {
+      margin-bottom: 0px;
+    }
   }
 
   .show-review-user-name {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
   }
 
