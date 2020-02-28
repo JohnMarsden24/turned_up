@@ -34,11 +34,11 @@
       <% end %>
       </div>
       <div class="show-page-add-review">
-        <%= simple_form_for([@user, @review]) do |f| %>
-          <div class="d-flex justify-content-around">
+        <%= simple_form_for([@user, @review], remote: true) do |f| %>
+          <%= f.input :content, label: false, placeholder: "Share details about your experience!"%>
+          <div class="d-flex justify-content-around bg-white">
             <p><%= f.input :rating, collection: (1..5).to_a, label: false, id:"review_rating" %></p>
           </div>
-          <%= f.input :content, label: false, placeholder: "Share details about your experience!"%>
         <%= f.button :submit, "submit review", class:"btn-light-full-size" %>
         <% end %>
       </div>
