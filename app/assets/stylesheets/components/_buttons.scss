@@ -1,19 +1,5 @@
-.btn-dark {
-  margin-right: 16px;
-  padding: 4px 16px;
-  background-color: black;
-  color: white;
-  border-radius: 40px;
-  font-family: $sub-title;
-  transition: 0.3s;
-  &:hover {
-    color: $pink;
-    text-decoration: none;
-  }
-}
-
 .btn-light {
-  padding: 4px 16px;
+  padding: .25rem .5rem;
   background-color: $pink;
   color: white;
   font-family: $sub-title;

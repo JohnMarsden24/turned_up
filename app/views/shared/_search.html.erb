@@ -1,13 +1,8 @@
-<div class="search-form" >
-  <%= form_tag users_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      placeholder: "Find your headliner...",
-      class: "search-input"
-    %>
-    <%= submit_tag "Search", class: "btn-light" %>
-  <% end %>
-</div>
-
-
- <!-- data: { disable_with: false } -->
+<%= form_tag users_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    placeholder: "Find your headliner...",
+    class: "search-input"
+  %>
+  <%= submit_tag "Search", class: "btn-light" %>
+<% end %>

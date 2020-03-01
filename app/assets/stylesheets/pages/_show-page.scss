@@ -78,3 +78,12 @@
   }
 }
 
+@media(max-width: 600px) {
+  .show-page {
+    grid-template-columns: 1fr;
+    .show-image {
+      height: 200px;
+    }
+  }
+}
+
