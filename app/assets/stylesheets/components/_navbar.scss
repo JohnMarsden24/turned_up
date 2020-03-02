@@ -1,48 +1,58 @@
 .navbar {
+  display: grid;
+  grid-template-columns: 12rem 4fr 12rem;
+  grid-template-areas: "link search user";
+  justify-content: space-between;
   background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
-  margin: 0px;
-  padding: 0px;
-  height: 10vh;
   z-index: 1;
+}
+
+.navbar-left {
+  grid-area: link;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2rem;
+
+  a {
+    color: black;
+    font-family: $title;
+    font-size: 2rem;
+    transition: 0.3s;
+    &:hover {
+      color: $pink;
+      text-decoration: none;
+    }
+  }
+}
+
+.navbar-center {
+  grid-area: search;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 8px;
+}
+
+
+
+.navbar-right {
+  grid-area: user;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2rem;
 
   h6 {
-    font-family: $sub-title;
-    padding-right: 16px;
-    margin: 0px;
+  font-family: $sub-title;
+  color: black;
+  margin-right: 1rem;
+  margin-bottom: 0px;
   }
 
-  .nav-bar-left {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    a {
-      color: black;
-      font-family: $title;
-      font-size: 36px;
-      margin-left: 16px;
-      transition: 0.3s;
-      &:hover {
-        color: $pink;
-        text-decoration: none;
-      }
-    }
-
-    .search-form {
-      padding-top: 8px;
-      margin-left: 16px;
-    }
-  }
-
-  .navbar-user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-  }
 
   .dropdown {
     a:hover {
@@ -51,8 +61,8 @@
   }
 
   .navbar-user-photo {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -62,3 +72,31 @@
     }
   }
 }
+
+@media(max-width: 600px) {
+  .navbar {
+    grid-template-columns: 5fr 1fr;
+    grid-template-areas: "search user";
+  }
+
+  .navbar-left {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .navbar-center {
+    padding-top: 0;
+  }
+
+  .navbar-right {
+    margin-right: -32px;
+  }
+
+  .navbar-user-name {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+

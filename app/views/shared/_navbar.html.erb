@@ -1,11 +1,16 @@
 <div class="navbar">
-  <div class="nav-bar-left">
+  <div class="navbar-left">
     <%= link_to "turned up", root_path %>
+  </div>
+  <div class="navbar-center">
     <%= render "shared/search" unless url_for == root_path %>
   </div>
-  <div class="navbar-user">
+  <div class="navbar-right">
     <% if current_user %>
+    <div class="navbar-user-name">
       <h6><%= current_user.user_name %></h6>
+
+    </div>
       <div class="dropdown">
         <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <% current_user.avatar.attached? ? avatar_key = current_user.avatar.key : avatar_key = "e1tikr33400esm4prcouknjq4xzc"%>
