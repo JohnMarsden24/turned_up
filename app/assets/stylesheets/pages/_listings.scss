@@ -14,11 +14,14 @@
   display: grid;
   grid-gap: 2rem;
   padding: 2rem;
+  grid-gap: 32px;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 @media(max-width: 600px) {
   .listings {
     grid-template-columns: 1fr;
+    grid-gap: 16px 0px;
+    padding: 16px 0px 0px 0px;
   }
 }
