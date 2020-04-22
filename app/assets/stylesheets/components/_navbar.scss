@@ -1,21 +1,22 @@
 .navbar {
-  display: grid;
-  grid-template-columns: 12rem 4fr 12rem;
-  grid-template-areas: "link search user";
+  display: flex;
   justify-content: space-between;
   background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.home-button {
+  padding-right: 2rem;
 }
 
 .navbar-left {
-  grid-area: link;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  margin-left: 2rem;
 
   a {
     color: black;
@@ -29,22 +30,9 @@
   }
 }
 
-.navbar-center {
-  grid-area: search;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 8px;
-}
-
-
-
 .navbar-right {
-  grid-area: user;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  margin-right: 2rem;
 
   h6 {
   font-family: $sub-title;
@@ -73,30 +61,42 @@
   }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 768px) {
+
   .navbar {
-    grid-template-columns: 5fr 1fr;
-    grid-template-areas: "search user";
+    padding-right: 8px;
+    padding-left: 8px;
   }
 
-  .navbar-left {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
 
-  .navbar-center {
-    padding-top: 0;
-  }
-
-  .navbar-right {
-    margin-right: -32px;
-  }
-
-  .navbar-user-name {
-    visibility: hidden;
-    width: 0;
-    height: 0;
+  .home-button {
+    display: none;
   }
 }
 
+// @media(max-width: 600px) {
+//   .navbar {
+//     grid-template-columns: 5fr 1fr;
+//     grid-template-areas: "search user";
+//   }
+
+//   .navbar-left {
+//     visibility: hidden;
+//     width: 0;
+//     height: 0;
+//   }
+
+//   .navbar-center {
+//     padding-top: 0;
+//   }
+
+//   .navbar-right {
+//     margin-right: -32px;
+//   }
+
+//   .navbar-user-name {
+//     visibility: hidden;
+//     width: 0;
+//     height: 0;
+//   }
+// }
