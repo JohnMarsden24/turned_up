@@ -1,16 +1,28 @@
 .banner {
-  height: 60vh;
+  height: 70vh;
   display: flex;
   align-items: center;
 }
 
 .banner-text {
   h1 {
-    font-size: 80px;
+    font-size: 6rem;
   }
 
   h2 {
     font-family: $sub-title;
     color: $pink;
+  }
+}
+
+@media(max-width: 576px) {
+  .banner-text {
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
   }
 }
