@@ -69,35 +69,12 @@
     padding-left: 8px;
   }
 
+  .navbar-user-name {
+    display: none;
+  }
+
 
   .home-button {
     display: none;
   }
 }
-
-// @media(max-width: 600px) {
-//   .navbar {
-//     grid-template-columns: 5fr 1fr;
-//     grid-template-areas: "search user";
-//   }
-
-//   .navbar-left {
-//     visibility: hidden;
-//     width: 0;
-//     height: 0;
-//   }
-
-//   .navbar-center {
-//     padding-top: 0;
-//   }
-
-//   .navbar-right {
-//     margin-right: -32px;
-//   }
-
-//   .navbar-user-name {
-//     visibility: hidden;
-//     width: 0;
-//     height: 0;
-//   }
-// }
